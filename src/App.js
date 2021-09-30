@@ -5,18 +5,16 @@ import 'bootstrap/dist/js/bootstrap';
 //components
 import Navbar from './components/Navbar/Navbar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import ItemCount from './components/ItemCount/ItemCount';
+import ItemList from './components/ItemList/ItemList';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
       
-      <ItemListContainer
-        greeting="Bienvenido a YouMayNeedThis"
-      />
-
-      <ItemCount />
+      <ItemListContainer greeting="Bienvenido a YouMayNeedThis" />
+      <hr/>
+      <ItemList />
     </div>
   );
 }

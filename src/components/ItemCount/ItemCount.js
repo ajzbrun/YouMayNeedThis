@@ -23,6 +23,7 @@ const ItemCount = () => {
 
             <br/><br/>
             <button class="btn btn-outline-primary">Agregar al carrito</button>
+            <br/>
         </div>
     )
 }
