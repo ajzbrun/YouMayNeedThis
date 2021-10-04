@@ -17,9 +17,9 @@ const ItemCount = () => {
 
     return (
         <div>
-            <a href="#" onClick={decrementCounter}><i class="fa fa-minus fa-2x"></i></a>&nbsp;
+            <a onClick={decrementCounter}><i class="fa fa-minus fa-2x"></i></a>&nbsp;
             <input type="text" value={counter} style={{width:'4em', textAlign:'center'}} />&nbsp;
-            <a href="#" onClick={incrementCounter}><i class="fa fa-plus fa-2x"></i></a>
+            <a onClick={incrementCounter}><i class="fa fa-plus fa-2x"></i></a>
 
             <br/><br/>
             <button class="btn btn-outline-primary">Agregar al carrito</button>
