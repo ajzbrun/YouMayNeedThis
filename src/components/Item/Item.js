@@ -8,7 +8,7 @@ const Item = ({data}) => {
     return (
         <div class="ui card">
             <div class="image">
-                <img src={data.url} />
+                <img src={data.image} />
             </div>
             <div class="content">
                 <a class="header">{data.title}</a>
@@ -16,7 +16,7 @@ const Item = ({data}) => {
                 <span class="date">Id: {data.id}</span>
                 </div>
                 <div class="description">
-                {data.thumbnaiUrl}
+                {data.description}
                 </div>
             </div>
             <div>

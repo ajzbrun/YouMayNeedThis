@@ -6,7 +6,7 @@ const ItemList = () => {
     const[users, setUsers] = useState([]);
 
     useEffect(async () => {
-        fetch('https://jsonplaceholder.typicode.com/photos')
+        fetch('https://fakestoreapi.com/products')
             .then(response => response.json())
             .then(json => setUsers(json));
     
