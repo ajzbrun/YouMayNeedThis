@@ -1,21 +1,29 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+
+//views
+import Home from './views/Home/Home';
+import Products from './views/Products/Products';
+import ProductDetail from './views/ProductDetail/ProductDetail';
 
 //components
 import Navbar from './components/Navbar/Navbar';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import ItemList from './components/ItemList/ItemList';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      
-      <ItemListContainer greeting="Bienvenido a YouMayNeedThis" />
-      <hr/>
-      <ItemList />
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/products" exact component={Products} />
+          <Route path="/Product-Detail/:id" exact component={ProductDetail} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

@@ -1,5 +1,6 @@
 import userEvent from '@testing-library/user-event'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 //components
 import ItemCount from '../ItemCount/ItemCount';
@@ -15,10 +16,10 @@ const Item = ({data}) => {
                 <div class="meta">
                 <span class="date">Id: {data.id}</span>
                 </div>
-                <div class="description">
-                {data.description}
-                </div>
             </div>
+            <Link to={`/Product-Detail/${data.id}`}>
+                Ver detalles
+            </Link>
             <div>
                 <ItemCount />
             </div>
