@@ -4,7 +4,7 @@ import 'font-awesome/css/font-awesome.min.css'
 const CartWidget = ({itemsCount}) => {
     return (
         <div>
-            <i class="fa fa-shopping-cart fa-2x"></i>
+            <i className="fa fa-shopping-cart fa-2x"></i>
             &nbsp;<i><span>({itemsCount} items)</span></i>
         </div>
     )

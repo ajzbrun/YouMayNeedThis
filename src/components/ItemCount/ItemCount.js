@@ -17,12 +17,12 @@ const ItemCount = () => {
 
     return (
         <div>
-            <a onClick={decrementCounter}><i class="fa fa-minus fa-2x"></i></a>&nbsp;
-            <input type="text" value={counter} style={{width:'4em', textAlign:'center'}} />&nbsp;
-            <a onClick={incrementCounter}><i class="fa fa-plus fa-2x"></i></a>
+            <a onClick={decrementCounter}><i className="fa fa-minus fa-2x"></i></a>&nbsp;
+            <input type="text" defaultValue={counter} style={{width:'4em', textAlign:'center'}} />&nbsp;
+            <a onClick={incrementCounter}><i className="fa fa-plus fa-2x"></i></a>
 
             <br/><br/>
-            <button class="btn btn-outline-primary">Agregar al carrito</button>
+            <button className="btn btn-outline-primary">Agregar al carrito</button>
             <br/>
         </div>
     )

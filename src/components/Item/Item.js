@@ -7,14 +7,14 @@ import ItemCount from '../ItemCount/ItemCount';
 
 const Item = ({data}) => {
     return (
-        <div class="ui card">
-            <div class="image">
+        <div className="ui card">
+            <div className="image">
                 <img src={data.image} />
             </div>
-            <div class="content">
-                <a class="header">{data.title}</a>
-                <div class="meta">
-                <span class="date">Id: {data.id}</span>
+            <div className="content">
+                <a className="header">{data.title}</a>
+                <div className="meta">
+                <span className="date">Id: {data.id}</span>
                 </div>
             </div>
             <Link to={`/Product-Detail/${data.id}`}>

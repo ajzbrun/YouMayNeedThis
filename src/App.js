@@ -1,6 +1,7 @@
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap';
+
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 //views
@@ -20,6 +21,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/products" exact component={Products} />
+          <Route path="/products/:category" exact component={Products} />
           <Route path="/Product-Detail/:id" exact component={ProductDetail} />
         </Switch>
       </div>

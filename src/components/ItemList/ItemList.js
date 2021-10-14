@@ -4,19 +4,37 @@ import { Dimmer, Loader } from 'semantic-ui-react';
 import Item from '../Item/Item';
 
 
-const ItemList = () => {
-    const[users, setUsers] = useState([]);
+const ItemList = ({ categ }) => {
+    const[allProducts, setAllProducts] = useState([]);
+    const[products, setProducts] = useState([]);
     const[loading, setLoading] = useState(true);
+
+
+    const updFilteredCateg = (data = null) => {
+        let json = allProducts;
+        if(data != null)
+            json = data;
+
+        if(categ != "")
+            json = json.filter((element) => element.category == categ);
+
+        setProducts(json);
+    }
 
     useEffect(async () => {
         fetch('https://fakestoreapi.com/products')
             .then(response => response.json())
             .then(json => {
                 setLoading(false);
-                setUsers(json)
+                setAllProducts(json);
+                updFilteredCateg(json);
             });
-    
+        
     }, []); //when component did mount
+
+    useEffect(async () => {
+        updFilteredCateg();
+    }, [categ]); //when the get var category changes his value, update the visible product list
 
     return (
         <div>
@@ -28,7 +46,7 @@ const ItemList = () => {
                 <Loader />
             </Dimmer>
             <div className="ui link cards" style={{textAlign:'center'}}>
-                {users.map((user) => {
+                {products.map((user) => {
                     return(
                         <div key={user.id}>
                             <Item data={user} />

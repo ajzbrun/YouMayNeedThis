@@ -3,7 +3,8 @@ import { Dimmer, Loader } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 const ProductDetail = ({ match }) => {
-
+    console.log("BBB:")
+    console.log(match)
     const [product, setProduct] = useState([]);
     const[loading, setLoading] = useState(true);
 
@@ -27,16 +28,16 @@ const ProductDetail = ({ match }) => {
             <Dimmer active={loading}>
                 <Loader />
             </Dimmer>
-            <div class="ui card">
-                <div class="image">
+            <div className="ui card">
+                <div className="image">
                     <img src={product.image} />
                 </div>
-                <div class="content">
-                    <a class="header">{product.title}</a>
-                    <div class="meta">
-                    <span class="date">Id: {product.id}</span>
+                <div className="content">
+                    <a className="header">{product.title}</a>
+                    <div className="meta">
+                    <span className="date">Id: {product.id}</span>
                     </div>
-                    <div class="description">
+                    <div className="description">
                     {product.description}
                     </div>
                 </div>
