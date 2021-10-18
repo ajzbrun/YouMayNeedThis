@@ -2,11 +2,13 @@ import React, {useState, useEffect} from 'react'
 import { Dimmer, Loader } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
+//components
+import ItemCount from '../../components/ItemCount/ItemCount';
+
 const ProductDetail = ({ match }) => {
-    console.log("BBB:")
-    console.log(match)
-    const [product, setProduct] = useState([]);
+    const[product, setProduct] = useState([]);
     const[loading, setLoading] = useState(true);
+    const[cartQty, setCartQty] = useState(0);
 
     useEffect(async () => {
         fetch(`https://fakestoreapi.com/products/${match.params.id}`)
@@ -17,6 +19,10 @@ const ProductDetail = ({ match }) => {
             });
     
     }, []);
+
+    const onAdd = (qty) => {
+        setCartQty(cartQty + qty);
+    }
 
     return (
         <div>
@@ -40,6 +46,9 @@ const ProductDetail = ({ match }) => {
                     <div className="description">
                     {product.description}
                     </div>
+                </div>
+                <div>
+                    <ItemCount event={onAdd} />
                 </div>
             </div>
         </div>

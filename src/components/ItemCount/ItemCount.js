@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
-import 'font-awesome/css/font-awesome.min.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
 
-const ItemCount = () => {
-
+const ItemCount = ({ event }) => {
     const [counter, setCounter] = useState(0);
 
     const incrementCounter = () => {
@@ -15,14 +12,20 @@ const ItemCount = () => {
             setCounter(counter-1);
     }
 
+    const addToCart = () => {
+        event(counter);
+        //reset the counter
+        setCounter(0);
+    }
+
     return (
         <div>
             <a onClick={decrementCounter}><i className="fa fa-minus fa-2x"></i></a>&nbsp;
-            <input type="text" defaultValue={counter} style={{width:'4em', textAlign:'center'}} />&nbsp;
+            <input type="text" value={counter} style={{width:'4em', textAlign:'center'}} readOnly />&nbsp;
             <a onClick={incrementCounter}><i className="fa fa-plus fa-2x"></i></a>
 
             <br/><br/>
-            <button className="btn btn-outline-primary">Agregar al carrito</button>
+            <button className="btn btn-outline-primary" onClick={addToCart}>Agregar al carrito</button>
             <br/>
         </div>
     )

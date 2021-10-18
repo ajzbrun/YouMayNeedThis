@@ -2,9 +2,6 @@ import userEvent from '@testing-library/user-event'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-//components
-import ItemCount from '../ItemCount/ItemCount';
-
 const Item = ({data}) => {
     return (
         <div className="ui card">
@@ -20,9 +17,6 @@ const Item = ({data}) => {
             <Link to={`/Product-Detail/${data.id}`}>
                 Ver detalles
             </Link>
-            <div>
-                <ItemCount />
-            </div>
         </div>
     )
 }
