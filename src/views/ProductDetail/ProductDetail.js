@@ -24,6 +24,7 @@ const ProductDetail = ({ match }) => {
         setCartQty(cartQty + qty);
     }
 
+
     return (
         <div>
             <h1>Detalles del producto</h1>
@@ -48,7 +49,7 @@ const ProductDetail = ({ match }) => {
                     </div>
                 </div>
                 <div>
-                    <ItemCount event={onAdd} />
+                    <ItemCount event={onAdd} cartQty={cartQty} />
                 </div>
             </div>
         </div>
