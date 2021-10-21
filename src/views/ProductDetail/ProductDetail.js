@@ -8,10 +8,9 @@ import ItemCount from '../../components/ItemCount/ItemCount';
 const ProductDetail = ({ match }) => {
     const[product, setProduct] = useState([]);
     const[loading, setLoading] = useState(true);
-    const[cartQty, setCartQty] = useState(0);
 
     useEffect(async () => {
-        fetch(`https://fakestoreapi.com/products/${match.params.id}`)
+        await fetch(`https://fakestoreapi.com/products/${match.params.id}`)
             .then(response => response.json())
             .then((json) => {
                 setLoading(false);
@@ -19,11 +18,6 @@ const ProductDetail = ({ match }) => {
             });
     
     }, []);
-
-    const onAdd = (qty) => {
-        setCartQty(cartQty + qty);
-    }
-
 
     return (
         <div>
@@ -49,7 +43,7 @@ const ProductDetail = ({ match }) => {
                     </div>
                 </div>
                 <div>
-                    <ItemCount event={onAdd} cartQty={cartQty} />
+                    <ItemCount productId={product.id} />
                 </div>
             </div>
         </div>

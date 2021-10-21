@@ -12,20 +12,25 @@ import ProductDetail from './views/ProductDetail/ProductDetail';
 //components
 import Navbar from './components/Navbar/Navbar';
 
+//context
+import { CartProvider } from './CartContext';
+
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/products" exact component={Products} />
-          <Route path="/products/:category" exact component={Products} />
-          <Route path="/Product-Detail/:id" exact component={ProductDetail} />
-        </Switch>
-      </div>
-    </Router>
+    <CartProvider>
+      <Router>
+        <div className="App">
+          <Navbar />
+          
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/products" exact component={Products} />
+            <Route path="/products/:category" exact component={Products} />
+            <Route path="/Product-Detail/:id" exact component={ProductDetail} />
+          </Switch>
+        </div>
+      </Router>
+    </CartProvider>
   );
 }
 

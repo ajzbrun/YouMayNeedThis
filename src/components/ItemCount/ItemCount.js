@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ToastContainer, Toast } from 'react-bootstrap';
+import { CartContext } from '../../CartContext';
 
-const ItemCount = ({ event, cartQty }) => {
+const ItemCount = ({ productId }) => {
     const [showA, setShowA] = useState(false);
     const [counter, setCounter] = useState(0);
+    const [cartProducts, addProductToCart, removeItem] = useContext(CartContext);
+    const [qtyInCart, setQtyInCart] = useState(0);
 
     const toggleShowA = () => setShowA(!showA);
 
@@ -19,7 +22,8 @@ const ItemCount = ({ event, cartQty }) => {
 
     const addToCart = () => {
         if(counter > 0){
-            event(counter);
+            //event(counter);
+            addProductToCart(productId, counter);
             //reset the counter
             setCounter(0);
         } else {
@@ -27,14 +31,27 @@ const ItemCount = ({ event, cartQty }) => {
         }
     }
 
-    if(cartQty > 0)
+    const deleteFromCart = () => {
+        removeItem(productId);
+        setQtyInCart(0);
+    }
+
+    useEffect (() => {
+        const aux = cartProducts;
+        if(productId !== undefined && aux.find(x => x.id === productId) !== undefined)
+            setQtyInCart(aux.find(x => x.id === productId).quantity); 
+    });
+
+    
+    if(qtyInCart > 0){
         return (
             <div>
                 <Link className="btn btn-outline-success" to="/Cart">Finalizar compra</Link>
                 <br/>
+                <button className="btn btn-outline-danger small" onClick={deleteFromCart}>Eliminar del carrito</button>
             </div>
         )
-    else{
+    } else {
         return (
             <div>
                 <ToastContainer position="top-end" className="p-3">
