@@ -14,7 +14,7 @@ const Item = ({data}) => {
                 <span className="date">Id: {data.id}</span>
                 </div>
             </div>
-            <Link to={`/Product-Detail/${data.id}`}>
+            <Link to={`/product-detail/${data.id}`}>
                 Ver detalles
             </Link>
         </div>

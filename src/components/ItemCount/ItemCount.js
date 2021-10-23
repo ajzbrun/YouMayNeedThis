@@ -47,8 +47,8 @@ const ItemCount = ({ productId }) => {
         return (
             <div>
                 <Link className="btn btn-outline-success" to="/Cart">Finalizar compra</Link>
-                <br/>
-                <button className="btn btn-outline-danger small" onClick={deleteFromCart}>Eliminar del carrito</button>
+                <br/><br/>
+                <button className="btn btn-outline-danger btn-sm" onClick={deleteFromCart}>Eliminar del carrito</button>
             </div>
         )
     } else {

@@ -46,10 +46,10 @@ const ItemList = ({ categ }) => {
                 <Loader />
             </Dimmer>
             <div className="ui link cards" style={{textAlign:'center'}}>
-                {products.map((user) => {
+                {products.map((item) => {
                     return(
-                        <div key={user.id}>
-                            <Item data={user} />
+                        <div key={item.id}>
+                            <Item data={item} />
                         </div>
                     );
                 })}

@@ -16,11 +16,12 @@ export const CartProvider = ({ children }) => {
     }
 
     const removeItem = (id) => {
-        setCartProducts(cartProducts.filter(x => x.id != id));
+        const filteredCart = cartProducts.filter(x => x.id != id);
+        setCartProducts(filteredCart);
     }
 
     const clearCart = () => {
-        cartProducts = [];
+        setCartProducts([]);
     }
 
     return (
