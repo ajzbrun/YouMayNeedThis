@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/js/dist/dropdown';
 import $ from 'jquery';
 import { Link } from 'react-router-dom';
+import { collection, getDocs } from '@firebase/firestore';
+import { db } from '../../firebase.config';
 
 //components
 import CartWidget from '../CartWidget/CartWidget'
@@ -13,17 +15,21 @@ const Navbar = () => {
     const closeDropdown = () => setDropdown(false);
 
     useEffect(async () => {
-        fetch('https://fakestoreapi.com/products')
-            .then(response => response.json())
-            .then(json => {
-                let cat_arr = [];
-                $.each(json, (i, obj) => {
-                    if(!cat_arr.includes(obj.category)){
-                        cat_arr = [...cat_arr, obj.category];
-                    }
-                });
-                setCategories(cat_arr);
+        const requestData = async () => {
+            const items = await getDocs(collection(db, 'products'));
+            const products = items.docs.map((doc) => {
+                return { ...doc.data(), id: doc.id }
             });
+            
+            let cat_arr = [];
+            $.each(products, (i, obj) => {
+                if(!cat_arr.includes(obj.category)){
+                    cat_arr = [...cat_arr, obj.category];
+                }
+            });
+            setCategories(cat_arr);
+        }
+        requestData();
     }, [/*when component did mount*/]); 
 
     return (

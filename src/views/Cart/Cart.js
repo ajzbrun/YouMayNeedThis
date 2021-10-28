@@ -2,7 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import { CartContext } from '../../CartContext';
 import { Image, Item, Dimmer, Loader } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { collection, getDocs } from '@firebase/firestore';
+import { db } from '../../firebase.config';
 
 const Cart = () => {
     const[productsInCart, setProductsInCart] = useState([]);
@@ -12,25 +13,29 @@ const Cart = () => {
     useEffect(async () => {
         let inCartProds = [];
         let itemsProccessed = 0;
-        await cartProducts.forEach(item => {
-            axios.get(`https://fakestoreapi.com/products/${item.id}`)
-                .then((response) => {
-                    let itemData = response.data;
-                    itemData['quantity'] = item.quantity;
-                    inCartProds.push(itemData);
+        const requestData = async (item) => {
+            const items = await getDocs(collection(db, 'products'));
+            const products = items.docs.map((doc) => {
+                return { ...doc.data(), id: doc.id }
+            });
 
-                    itemsProccessed++
-                    if(itemsProccessed >= cartProducts.length)
-                        setProductsInCart(inCartProds);
+            const product = products.find((prod) => prod.id === item.id);
+            product['quantity'] = item.quantity;
+            inCartProds.push(product);
 
-            }).then(() => {
+            itemsProccessed++
+            if(itemsProccessed >= cartProducts.length)
+                setProductsInCart(inCartProds);
+        }
+
+        await cartProducts.forEach(item => {            
+            requestData(item).then(() => {
                 setLoading(false);
-            });            
+            });
         });
 
         if(cartProducts.length == 0)
             setLoading(false);
-                  
     }, [cartProducts]);
 
     const removeSpecificItem = (id) => {

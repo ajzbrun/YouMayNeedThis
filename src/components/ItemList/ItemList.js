@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Dimmer, Loader } from 'semantic-ui-react';
+import { collection, getDocs } from '@firebase/firestore';
+import { db } from '../../firebase.config';
 
 import Item from '../Item/Item';
 
@@ -22,14 +24,18 @@ const ItemList = ({ categ }) => {
     }
 
     useEffect(async () => {
-        fetch('https://fakestoreapi.com/products')
-            .then(response => response.json())
-            .then(json => {
-                setLoading(false);
-                setAllProducts(json);
-                updFilteredCateg(json);
+        const requestData = async () => {
+
+            const items = await getDocs(collection(db, 'products'));
+            const products = items.docs.map((doc) => {
+                return { ...doc.data(), id: doc.id }
             });
-        
+            
+            setLoading(false);
+            setAllProducts(products);
+            updFilteredCateg(products);
+        }
+        requestData();
     }, []); //when component did mount
 
     useEffect(async () => {

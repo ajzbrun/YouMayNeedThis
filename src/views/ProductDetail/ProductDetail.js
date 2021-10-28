@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import { Dimmer, Loader } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import { collection, getDocs } from '@firebase/firestore';
+import { db } from '../../firebase.config';
 
 //components
 import ItemCount from '../../components/ItemCount/ItemCount';
@@ -10,13 +12,18 @@ const ProductDetail = ({ match }) => {
     const[loading, setLoading] = useState(true);
 
     useEffect(async () => {
-        await fetch(`https://fakestoreapi.com/products/${match.params.id}`)
-            .then(response => response.json())
-            .then((json) => {
-                setLoading(false);
-                setProduct(json);
+        const requestData = async () => {
+
+            const items = await getDocs(collection(db, 'products'));
+            const products = items.docs.map((doc) => {
+                return { ...doc.data(), id: doc.id }
             });
-    
+
+            const product = products.find((prod) => prod.id === match.params.id);
+            setLoading(false);
+            setProduct(product);
+        }
+        requestData();
     }, []);
 
     return (
