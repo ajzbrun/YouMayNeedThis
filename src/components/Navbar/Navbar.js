@@ -3,7 +3,7 @@ import 'bootstrap/js/dist/dropdown';
 import $ from 'jquery';
 import { Link } from 'react-router-dom';
 import { collection, getDocs } from '@firebase/firestore';
-import { db } from '../../firebase.config';
+import { db } from '../../firebase/firebase.config';
 
 //components
 import CartWidget from '../CartWidget/CartWidget'

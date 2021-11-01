@@ -3,7 +3,7 @@ import { CartContext } from '../../CartContext';
 import { Image, Item, Dimmer, Loader } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { collection, getDocs } from '@firebase/firestore';
-import { db } from '../../firebase.config';
+import { db } from '../../firebase/firebase.config';
 
 const Cart = () => {
     const[productsInCart, setProductsInCart] = useState([]);

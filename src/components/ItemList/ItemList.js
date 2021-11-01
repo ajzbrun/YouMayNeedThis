@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Dimmer, Loader } from 'semantic-ui-react';
 import { collection, getDocs } from '@firebase/firestore';
-import { db } from '../../firebase.config';
+import { db } from '../../firebase/firebase.config';
 
 import Item from '../Item/Item';
 
