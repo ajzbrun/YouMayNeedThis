@@ -42,8 +42,8 @@ const ProductDetail = ({ match }) => {
                 </div>
                 <div className="content">
                     <a className="header">{product.title}</a>
-                    <div className="meta">
-                    <span className="date">Id: {product.id}</span>
+                    <div className="description">
+                        <b>$ {product.price}</b>
                     </div>
                     <div className="description">
                     {product.description}

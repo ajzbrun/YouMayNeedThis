@@ -10,8 +10,8 @@ const Item = ({data}) => {
             </div>
             <div className="content">
                 <a className="header">{data.title}</a>
-                <div className="meta">
-                <span className="date">Id: {data.id}</span>
+                <div className="description">
+                <b>$ {data.price}</b>
                 </div>
             </div>
             <Link to={`/product-detail/${data.id}`}>

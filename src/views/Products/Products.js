@@ -9,7 +9,9 @@ const Products = ({ match }) => {
         category = match.params.category;
 
     return (
-        <ItemList categ={category} />
+        <div>
+            <ItemList categ={category} />
+        </div>
     )
 }
 
