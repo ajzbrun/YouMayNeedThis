@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import logo from '../../logo.png';
 import 'bootstrap/js/dist/dropdown';
 import $ from 'jquery';
 import { Link } from 'react-router-dom';
@@ -7,6 +8,14 @@ import { db } from '../../firebase/firebase.config';
 
 //components
 import CartWidget from '../CartWidget/CartWidget'
+
+//custom styles
+const logoStyle = {
+    maxWidth: '110px',
+    height: '100%',
+    borderRadius: '.5em',
+    marginLeft: '.5em'
+}
 
 const Navbar = () => {
     const[categories, setCategories] = useState([]);
@@ -34,7 +43,9 @@ const Navbar = () => {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <Link className="navbar-brand" to="/" onClick={closeDropdown}>YouMayNeedThis</Link>
+            <Link className="navbar-brand" to="/" onClick={closeDropdown}>
+                <img src={logo} style={logoStyle} />
+            </Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
