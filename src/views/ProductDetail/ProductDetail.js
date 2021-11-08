@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { Dimmer, Loader, Button } from 'semantic-ui-react';
+import { Dimmer, Loader, Grid, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { collection, getDocs } from '@firebase/firestore';
 import { db } from '../../firebase/firebase.config';
@@ -30,31 +30,39 @@ const ProductDetail = ({ match }) => {
         <div style={{margin:'3%'}}>
             <h1>Detalles del producto</h1>
 
-            <hr/><br/>
-            <Link to="/Products">
+            <hr/>
+            <Link to="/Products" style={{float:'left'}}>
                 <Button primary>Atrás</Button>
             </Link>
+            <br/>
 
             <Dimmer active={loading}>
                 <Loader />
             </Dimmer>
-            <div className="ui card" style={{padding:'1em'}}>
-                <div className="image">
-                    <img src={product.image} />
-                </div>
-                <div className="content">
-                    <a className="header">{product.title}</a>
-                    <div className="description">
-                        <b>$ {product.price}</b>
+
+            <Grid style={{marginTop:'2em'}} doubling stackable>
+                <Grid.Column width={4}>
+                    <div className="ui centered card" style={{padding:'1em'}}>
+                        <div className="image">
+                            <img src={product.image} />
+                        </div>
+                        <div className="content">
+                            <a className="header">{product.title}</a>
+                            <div className="description">
+                                <b>$ {product.price}</b>
+                            </div>
+                        </div>
+                        <div>
+                            <ItemCount productId={product.id} />
+                        </div>
                     </div>
-                    <div className="description">
-                    {product.description}
-                    </div>
-                </div>
-                <div>
-                    <ItemCount productId={product.id} />
-                </div>
-            </div>
+                </Grid.Column>
+                <Grid.Column width={12}>
+                    <hr/>
+                    <p style={{textAlign:'left'}}>{product.description}</p>
+                    <hr/>
+                </Grid.Column>
+            </Grid>
         </div>
     )
 }

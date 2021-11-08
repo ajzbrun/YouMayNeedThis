@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Dimmer, Loader, Card, Header, Icon, Label } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import Slider from "react-slick";
-import { collection, getDocs } from '@firebase/firestore';
+import { collection, getDocs, query, where } from '@firebase/firestore';
 import { db } from '../../firebase/firebase.config';
 
 const Home = () => {
@@ -19,8 +19,9 @@ const Home = () => {
 
     useEffect(async () => {
         const requestData = async () => {
+            const q = query(collection(db, 'products'), where("offer", "==", true));
 
-            const items = await getDocs(collection(db, 'products'));
+            const items = await getDocs(q);
             const products = items.docs.map((doc) => {
                 return { ...doc.data(), id: doc.id }
             });
@@ -41,6 +42,7 @@ const Home = () => {
                 <Dimmer active={loading}>
                     <Loader />
                 </Dimmer>
+                
                 <Slider {...sliderSettings}>
                     {
                         allProducts.map((data) => {

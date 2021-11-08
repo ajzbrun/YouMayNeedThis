@@ -127,7 +127,7 @@ const Cart = () => {
     
     if(productsInCart.length > 0){
         return (
-            <div>
+            <div style={{margin:'3%'}}>
                 <Dimmer active={loading}>
                     <Loader />
                 </Dimmer>
@@ -233,12 +233,15 @@ const Cart = () => {
         )
     } else {
         return (
-            <div>
+            <div style={{margin:'3%'}}>
                 <Dimmer active={loading}>
                     <Loader />
                 </Dimmer>
                 <h2>No hay productos en tu carrito :(</h2>
-                <Link className="nav-link" to="/products">Ve a elegir productos!</Link>
+                <hr/>
+                <Link className="nav-link" to="/products">
+                    <Button color='green' icon='cart' label={{ basic: true, color: 'green', pointing: 'left', content: 'Ve a elegir productos!' }} />
+                </Link>
             </div>
         )
     }
