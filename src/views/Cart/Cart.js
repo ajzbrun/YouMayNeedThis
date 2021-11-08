@@ -138,7 +138,7 @@ const Cart = () => {
                             <div key={cartItem.id}>
                                 <hr/>
                                 <Item>
-                                    <Item.Image size='tiny' src={cartItem.image} />
+                                    <Item.Image size='tiny' src={cartItem.image} circular />
                                     <Item.Content>
                                         <Link to={`/product-detail/${cartItem.id}`}>{cartItem.title}</Link>
                                         <Item.Meta><b>Cantidad: {cartItem.quantity}</b></Item.Meta>

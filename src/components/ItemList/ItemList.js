@@ -51,7 +51,7 @@ const ItemList = ({ categ }) => {
             <Dimmer active={loading}>
                 <Loader />
             </Dimmer>
-            <div className="ui link cards" style={{textAlign:'center'}}>
+            <div className="ui centered cards">
                 {products.map((item) => {
                     return(
                         <div key={item.id}>

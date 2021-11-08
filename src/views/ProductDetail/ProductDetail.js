@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { Dimmer, Loader } from 'semantic-ui-react';
+import { Dimmer, Loader, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { collection, getDocs } from '@firebase/firestore';
 import { db } from '../../firebase/firebase.config';
@@ -27,16 +27,18 @@ const ProductDetail = ({ match }) => {
     }, []);
 
     return (
-        <div>
+        <div style={{margin:'3%'}}>
             <h1>Detalles del producto</h1>
 
             <hr/><br/>
-            <Link to="/Products">Atrás</Link>
+            <Link to="/Products">
+                <Button primary>Atrás</Button>
+            </Link>
 
             <Dimmer active={loading}>
                 <Loader />
             </Dimmer>
-            <div className="ui card">
+            <div className="ui card" style={{padding:'1em'}}>
                 <div className="image">
                     <img src={product.image} />
                 </div>

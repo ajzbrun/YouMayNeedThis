@@ -42,7 +42,7 @@ const Navbar = () => {
     }, [/*when component did mount*/]); 
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <Link className="navbar-brand" to="/" onClick={closeDropdown}>
                 <img src={logo} style={logoStyle} />
             </Link>
