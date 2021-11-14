@@ -37,7 +37,7 @@ const Home = () => {
             <div>
                 <Header as='h2' icon textAlign='center'>
                     <Icon name='opencart' />
-                    <Header.Content>Extendimos el cyberweek!</Header.Content>
+                    <Header.Content><i>Extendimos el cyberweek!</i></Header.Content>
                 </Header>
                 <Dimmer active={loading}>
                     <Loader />

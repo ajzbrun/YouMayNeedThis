@@ -27,7 +27,8 @@ const ItemCount = ({ productId }) => {
             //reset the counter
             setCounter(0);
         } else {
-            toggleShowA();
+            if(!showA)
+                toggleShowA();
         }
     }
 
@@ -64,7 +65,7 @@ const ItemCount = ({ productId }) => {
                             />
                             <strong className="me-auto">Atención</strong>
                         </Toast.Header>
-                        <Toast.Body>Debes sumar al menos 1 artículo</Toast.Body>
+                        <Toast.Body>Debes sumar al menos una unidad</Toast.Body>
                     </Toast>
                 </ToastContainer>
 

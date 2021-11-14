@@ -43,8 +43,8 @@ const ItemList = ({ categ }) => {
     }, [categ]); //when the get var category changes his value, update the visible product list
 
     return (
-        <div>
-            <h1>Productos</h1>
+        <div style={{margin:'3%'}}>
+            <h4>CAT&Aacute;LOGO DE PRODUCTOS</h4>
 
             <hr/><br/>
 

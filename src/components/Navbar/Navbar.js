@@ -69,9 +69,6 @@ const Navbar = () => {
                         </div>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/Contact" onClick={closeDropdown}>Contacto</Link>
-                    </li>
-                    <li className="nav-item">
                         <Link className="nav-link" to="/Cart" onClick={closeDropdown}>
                             <CartWidget itemsCount="0" />
                         </Link>

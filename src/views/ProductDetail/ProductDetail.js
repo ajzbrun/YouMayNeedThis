@@ -28,11 +28,11 @@ const ProductDetail = ({ match }) => {
 
     return (
         <div style={{margin:'3%'}}>
-            <h1>Detalles del producto</h1>
+            <h4>DETALLES DEL PRODUCTO</h4>
 
             <hr/>
             <Link to="/Products" style={{float:'left'}}>
-                <Button primary>Atrás</Button>
+                <Button primary>ATR&Aacute;S</Button>
             </Link>
             <br/>
 

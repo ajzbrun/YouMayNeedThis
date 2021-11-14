@@ -131,7 +131,7 @@ const Cart = () => {
                 <Dimmer active={loading}>
                     <Loader />
                 </Dimmer>
-                <h2>Productos en tu carrito</h2>
+                <h4>PRODUCTOS EN TU CARRITO</h4>
                 <Item.Group>
                     {productsInCart.map((cartItem) => {
                         return(
@@ -157,11 +157,12 @@ const Cart = () => {
                 </Item.Group>
 
                 <hr/>
-                <h3>Total: $ {totalAmountOfCart}</h3>
-                <div style={{fontSize:"130%"}}>
-                    <span style={{color:"#42A928"}}>¡envío gratis!</span><br/>
-                    <span style={{fontSize:"80%"}}>*a todo el país</span>
+                <div style={{fontSize:"110%"}}>
+                    <span style={{color:"#42A928"}}>¡ENV&Iacute;O GRATIS!</span><br/>
+                    <span style={{fontSize:"80%"}}>*A TODO EL PA&Iacute;S</span>
                 </div>
+                <hr/>
+                <h5>TOTAL: ${totalAmountOfCart}</h5>
                 <br/>
                 <button className="btn btn-outline-success" onClick={finishPurchase}>Finalizar compra</button>
                 <br/><br/>
@@ -237,7 +238,7 @@ const Cart = () => {
                 <Dimmer active={loading}>
                     <Loader />
                 </Dimmer>
-                <h2>No hay productos en tu carrito :(</h2>
+                <h4>NO HAY PRODUCTOS EN TU CARRITO :(</h4>
                 <hr/>
                 <Link className="nav-link" to="/products">
                     <Button color='green' icon='cart' label={{ basic: true, color: 'green', pointing: 'left', content: 'Ve a elegir productos!' }} />
