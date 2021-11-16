@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Dimmer, Loader, Card, Header, Icon, Label } from 'semantic-ui-react';
+import { Dimmer, Loader, Card, Header, Icon, Label, Image, Grid } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import { collection, getDocs, query, where } from '@firebase/firestore';
@@ -70,6 +70,43 @@ const Home = () => {
                         })
                     }
                 </Slider>
+
+                <br /><br />
+                <hr/>
+                <br />
+                <h4>OPINIONES SOBRE <i><b>YouMayNeedThis</b></i></h4>
+                <br />
+                <hr/>
+
+                <Grid centered celled='internally' style={{fontSize:'140%', color:'#707070'}}>
+                    <Grid.Row>
+                        <Grid.Column width={10}>
+                            <p>
+                                <span><i>Una de los mejores e-commerce nacidos la pandemia. Simple, rápido y a precio.</i></span>
+                                <br/><br/>
+                                <span style={{fontSize:'80%', float:'right'}}><b>-Juli&aacute;n P&eacute;rez. Periodista y analista de negocios en auge. Radio MZ.</b></span>
+                            </p>
+                        </Grid.Column>
+                    </Grid.Row>
+                    <Grid.Row>
+                        <Grid.Column width={10}>
+                            <p>
+                                <span><i>M&aacute;s all&aacute; de la calidad de la web, el servicio es increíble, los productos llegan a las pocas horas, a veces minutos.</i></span>
+                                <br/><br/>
+                                <span style={{fontSize:'80%', float:'right'}}><b>-Esteban Quir&oacute;z. Profesor de CoderHouse.</b></span>
+                            </p>
+                        </Grid.Column>
+                    </Grid.Row>
+                    <Grid.Row>
+                        <Grid.Column width={10}>
+                            <p>
+                                <span><i>Un servicio que mejor&oacute; la experiencia de compras online en pandemia. 10 puntos.</i></span>
+                                <br/><br/>
+                                <span style={{fontSize:'80%', float:'right'}}><b>-Roberto Ortega. Director general Planta Pacheco Ford.</b></span>
+                            </p>
+                        </Grid.Column>
+                    </Grid.Row>
+                </Grid>
             </div>
         </div>
     )

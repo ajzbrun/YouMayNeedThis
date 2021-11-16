@@ -13,6 +13,7 @@ import Cart from './views/Cart/Cart';
 
 //components
 import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
 
 //context
 import { CartProvider } from './CartContext';
@@ -25,14 +26,18 @@ function App() {
       <Router>
         <div className="App">
           <Navbar />
-          
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/products" exact component={Products} />
-            <Route path="/products/:category" exact component={Products} />
-            <Route path="/product-detail/:id" exact component={ProductDetail} />
-            <Route path="/cart" exact component={Cart} />
-          </Switch>
+
+          <div style={{position: 'relative', minHeight: '100vh'}}>
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/products" exact component={Products} />
+              <Route path="/products/:category" exact component={Products} />
+              <Route path="/product-detail/:id" exact component={ProductDetail} />
+              <Route path="/cart" exact component={Cart} />
+            </Switch>
+          </div>
+
+          <Footer />
         </div>
       </Router>
     </CartProvider>

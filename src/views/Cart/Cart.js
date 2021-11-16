@@ -221,7 +221,7 @@ const Cart = () => {
                         <p>
                             Tu orden de compra es: <b>{orderRef}</b>
                             <hr/>
-                            Se envió un correo con los detalles de tu compra. ¡Muchas gracias!
+                            Te enviamos un correo con los detalles de tu compra. ¡Muchas gracias!
                         </p>
                     </Modal.Content>
                     <Modal.Actions>
