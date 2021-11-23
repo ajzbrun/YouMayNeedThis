@@ -54,7 +54,7 @@ const ItemList = ({ categ }) => {
             <div className="ui centered cards">
                 {products.map((item) => {
                     return(
-                        <div key={item.id}>
+                        <div key={item.id} style={{margin:'.3em'}}>
                             <Item data={item} />
                         </div>
                     );

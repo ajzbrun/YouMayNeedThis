@@ -82,7 +82,7 @@ const Home = () => {
                     <Grid.Row>
                         <Grid.Column width={10}>
                             <p>
-                                <span><i>Una de los mejores e-commerce nacidos la pandemia. Simple, rápido y a precio.</i></span>
+                                <span><i>Una de los mejores e-commerce nacidos en pandemia. Simple, rápido y a precio.</i></span>
                                 <br/><br/>
                                 <span style={{fontSize:'80%', float:'right'}}><b>-Juli&aacute;n P&eacute;rez. Periodista y analista de negocios en auge. Radio MZ.</b></span>
                             </p>

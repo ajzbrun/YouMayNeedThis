@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
 import 'semantic-ui-less/semantic.less';
 import './index.css';
 import App from './App';
